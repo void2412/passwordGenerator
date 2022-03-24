@@ -16,7 +16,18 @@
         <div class="card-header">
           <h2>Generate a Password</h2>
         </div>
+        
         <div class="card-body">
+          <form id ="criteria">
+            <input type="checkbox" name="lowercase" id="lowercaseCheck">
+            <label for="lowercase">Lowercase</label><br><br>
+            <input type="checkbox" name="uppercase" id="uppercaseCheck">
+            <label for="uppercase">Uppercase</label><br><br>
+            <input type="checkbox" name="number" id="numberCheck">
+            <label for="number">Number</label><br><br>
+            <input type="checkbox" name="specialChar" id="specialCharCheck">
+            <label for="specialChar">Special Characters</label><br>
+          </form>
           <textarea
             readonly
             id="password"
