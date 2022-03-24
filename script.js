@@ -33,7 +33,31 @@ function getUserChoice(){
 
 function getPassword(){
   // get user choice
-  
+  var choice = getUserChoice()
+  // init criteria
+  var lowercase = "qwertyuiopasdfghjklzxcvbnm"
+  var uppercase = lowercase.toUpperCase()
+  var number = "1234567890"
+  var specialChar = "!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~"
+  var passwordPool = ""
+  var criteria = [lowercase, uppercase, number, specialChar]
+  choice = Object.values(choice)
+
+  // put criteria into passwordPool for randomization
+  for (var i = 0; i < choice.length; i++){
+    if (choice[i] === true){
+      passwordPool = passwordPool.concat(criteria[i-1])
+    }
+  }
+  // generate password
+  var randomArray = new Uint32Array(choice[0])
+  var result = []
+  window.crypto.getRandomValues(randomArray)
+  for (var i = 0; i< choice[0]; i++){
+    randomArray[i] = randomArray[i] % passwordPool.length
+    result.push(passwordPool.charAt(randomArray[i]))
+  }
+  return result.join('')
   
 }
 
