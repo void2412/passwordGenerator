@@ -58,6 +58,8 @@ header {
   text-align: center;
 }
 
+
+
 .card-footer::before {
   content: " ";
   display: block;
@@ -115,6 +117,8 @@ button[disabled] {
   cursor: default;
   background: #c0c7cf;
 }
+
+
 
 .float-right {
   float: right;

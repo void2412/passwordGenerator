@@ -22,14 +22,14 @@
             <label for="passwordLength">Password Length: </label>
             <input type="text" name="passwordLength" placeholder="Between 8 and 128 characters " id = "passwordLengthBox"><br>
             
-            <input class="checkboxItems" type="checkbox" name="lowercase" id="lowercase">
-            <label class="checkboxItems" for="lowercase">Lowercase</label><br><br>
-            <input class="checkboxItems" type="checkbox" name="uppercase" id="uppercase">
-            <label class="checkboxItems" for="uppercase">Uppercase</label><br><br>
-            <input class="checkboxItems" type="checkbox" name="number" id="number">
-            <label class="checkboxItems" for="number">Number</label><br><br>
-            <input class="checkboxItems" type="checkbox" name="specialChar" id="specialChar">
-            <label class="checkboxItems" for="specialChar">Special Characters</label><br><br>
+            <input onclick="checkboxClicked()" class="checkboxItems" type="checkbox" name="lowercase" id="lowercase">
+            <label onclick="checkboxClicked()" class="checkboxItems" for="lowercase">Lowercase</label><br><br>
+            <input onclick="checkboxClicked()" class="checkboxItems" type="checkbox" name="uppercase" id="uppercase">
+            <label onclick="checkboxClicked()" class="checkboxItems" for="uppercase">Uppercase</label><br><br>
+            <input onclick="checkboxClicked()" class="checkboxItems" type="checkbox" name="number" id="number">
+            <label onclick="checkboxClicked()" class="checkboxItems" for="number">Number</label><br><br>
+            <input onclick="checkboxClicked()" class="checkboxItems" type="checkbox" name="specialChar" id="specialChar">
+            <label onclick="checkboxClicked()" class="checkboxItems" for="specialChar">Special Characters</label><br><br>
             <div id="invalidArea">
               <p id="invalidOption">Must choose 1 criteria</p>
               </div>

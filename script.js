@@ -9,7 +9,7 @@ function writePassword() {
   if (isNaN(choice.length) || (choice.length < 8 || choice.length > 128)){
     element.value = ""
     element.setAttribute("style","box-shadow: 0 0 3px red;")
-    
+    countDown(element, "style", "border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));")
     return
   }
   else{
@@ -20,6 +20,7 @@ function writePassword() {
   if (!choice.haveLowercase && !choice.haveUppercase && !choice.haveNumber && !choice.haveSpecialChar){
     
     element.setAttribute("style","display:block;")
+    
     return
   }
   else{
@@ -31,6 +32,19 @@ function writePassword() {
 
   passwordText.value = password;
 
+}
+
+function countDown(selector, attribute, value){
+  var timeleft = 3
+  var timeInterval = setInterval(function(){
+    if (timeleft < 1){
+      clearInterval(timeInterval)
+      selector.setAttribute(attribute, value)
+    }
+    else{
+      timeleft--
+    }
+  }, 1000)
 }
 
 // Add event listener to generate button
@@ -123,23 +137,6 @@ function getPassword(choice){
   return password
 }
 
-
-var formContainer = document.querySelector("#criteria")
-// add event listener for label of checkboxes
-
-function toggleCheckbox(event){
-  element = event.target
-  if (element.matches("label"))
-  {
-    var srcCheckbox = element.getAttribute("for")
-    var checkbox = document.querySelector(srcCheckbox)
-    if (checkbox.checked){
-      checkbox.setChecked(false)
-    }
-    else{
-      checkbox.setChecked(true)
-    }
-  }
+function checkboxClicked(){
+  document.querySelector("#invalidArea").setAttribute("style","display:none;")
 }
-
-formContainer.addEventListener("click", toggleCheckbox)
