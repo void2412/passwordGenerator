@@ -77,6 +77,10 @@ header {
   line-height:1.5;
 }
 
+form label:hover, form input:hover{
+  cursor: pointer;
+}
+
 .btn {
   border: none;
   background-color: hsl(360, 91%, 36%);
@@ -138,5 +142,11 @@ button[disabled] {
 @media (max-width: 500px) {
   .btn {
     font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 300px){
+  #passwordLengthBox{
+    width: 100px;
   }
 }
