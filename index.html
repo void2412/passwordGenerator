@@ -20,15 +20,19 @@
         <div class="card-body">
           <form id ="criteria">
             <label for="passwordLength">Password Length: </label>
-            <input type="text" name="passwordLength" placeholder="Between 8 and 128 characters " id = "passwordLengthBox"><br><br>
-            <input type="checkbox" name="lowercase" id="lowercase">
-            <label for="lowercase">Lowercase</label><br><br>
-            <input type="checkbox" name="uppercase" id="uppercase">
-            <label for="uppercase">Uppercase</label><br><br>
-            <input type="checkbox" name="number" id="number">
-            <label for="number">Number</label><br><br>
-            <input type="checkbox" name="specialChar" id="specialChar">
-            <label for="specialChar">Special Characters</label><br>
+            <input type="text" name="passwordLength" placeholder="Between 8 and 128 characters " id = "passwordLengthBox"><br>
+            
+            <input class="checkboxItems" type="checkbox" name="lowercase" id="lowercase">
+            <label class="checkboxItems" for="lowercase">Lowercase</label><br><br>
+            <input class="checkboxItems" type="checkbox" name="uppercase" id="uppercase">
+            <label class="checkboxItems" for="uppercase">Uppercase</label><br><br>
+            <input class="checkboxItems" type="checkbox" name="number" id="number">
+            <label class="checkboxItems" for="number">Number</label><br><br>
+            <input class="checkboxItems" type="checkbox" name="specialChar" id="specialChar">
+            <label class="checkboxItems" for="specialChar">Special Characters</label><br><br>
+            <div id="invalidArea">
+              <p id="invalidOption"></p>
+              </div>
           </form>
           <textarea
             readonly

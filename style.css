@@ -81,7 +81,7 @@ form label {
   user-select: none;
 }
 
-form label:hover, form input:hover{
+.checkboxItems:hover {
   cursor: pointer;
 }
 
