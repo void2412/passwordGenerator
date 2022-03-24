@@ -1,6 +1,20 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+// Write password to the #password input
+function writePassword() {
+
+  var password = getPassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+
+}
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
+// get user choice of validation and length
 function getUserChoice(){
   var passLength = parseInt(window.prompt('Password Length (from 8 to 128 characters)'))
   while(passLength > 128 || passLength < 8 || isNaN(passLength)){
@@ -30,6 +44,7 @@ function getUserChoice(){
   return result
 }
 
+// logic to generate random password
 function generatePassword(passwordPool, passLength) {
   var randomArray = new Uint32Array(passLength)
   var result = []
@@ -41,6 +56,7 @@ function generatePassword(passwordPool, passLength) {
   return result.join('')
 }
 
+// logic to validate password
 function validatePassword(password, lowercase, uppercase, number, specialChar){
   var haveLowercase = false
   var haveUppercase = false
@@ -68,6 +84,7 @@ function validatePassword(password, lowercase, uppercase, number, specialChar){
   return true
 }
 
+// function to get final password
 function getPassword(){
   // get user choice
   var choice = getUserChoice()
@@ -96,17 +113,22 @@ function getPassword(){
 }
 
 
+var formContainer = document.querySelector("#criteria")
+// add event listener for label of checkboxes
 
-
-// Write password to the #password input
-function writePassword() {
-
-  var password = getPassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
+function toggleCheckbox(event){
+  element = event.target
+  if (element.matches("label"))
+  {
+    var srcCheckbox = element.getAttribute("for")
+    var checkbox = document.querySelector(srcCheckbox)
+    if (checkbox.checked){
+      checkbox.setChecked(false)
+    }
+    else{
+      checkbox.setChecked(true)
+    }
+  }
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+formContainer.addEventListener("click", toggleCheckbox)
