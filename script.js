@@ -30,6 +30,43 @@ function getUserChoice(){
   return result
 }
 
+function generatePassword(passwordPool, passLength) {
+  var randomArray = new Uint32Array(passLength)
+  var result = []
+  window.crypto.getRandomValues(randomArray)
+  for (var i = 0; i< passLength; i++){
+    randomArray[i] = randomArray[i] % passwordPool.length
+    result.push(passwordPool.charAt(randomArray[i]))
+  }
+  return result.join('')
+}
+
+function validatePassword(password, lowercase, uppercase, number, specialChar){
+  var haveLowercase = false
+  var haveUppercase = false
+  var haveNumber = false
+  var haveSpecialChar = false
+
+  for (var i = 0; i < password.length; i++){
+    var charCode = password.charCodeAt(i)
+    if (charCode > 96 && charCode < 123){
+      haveLowercase = true
+    }
+    if(charCode > 64 && charCode < 91){
+      haveUppercase = true
+    }
+    if(charCode > 47 && charCode < 58){
+      haveNumber = true
+    }
+    if((charCode > 32 && charCode < 48) || (charCode > 57 && charCode < 65) || (charCode > 90 && charCode < 97) || (charCode > 122 && charCode < 127)){
+      haveSpecialChar = true
+    }
+  }
+  if (lowercase !== haveLowercase || uppercase !== haveUppercase || number !== haveNumber || specialChar !== haveSpecialChar){
+    return false
+  }
+  return true
+}
 
 function getPassword(){
   // get user choice
@@ -50,15 +87,12 @@ function getPassword(){
     }
   }
   // generate password
-  var randomArray = new Uint32Array(choice[0])
-  var result = []
-  window.crypto.getRandomValues(randomArray)
-  for (var i = 0; i< choice[0]; i++){
-    randomArray[i] = randomArray[i] % passwordPool.length
-    result.push(passwordPool.charAt(randomArray[i]))
+  var password = generatePassword(passwordPool, choice[0])
+  // validate password to meet criteria, otherwise create new password
+  while (!validatePassword(password, choice[1], choice[2], choice[3], choice[4])){
+    password = generatePassword(passwordPool, choice[0])
   }
-  return result.join('')
-  
+  return password
 }
 
 
