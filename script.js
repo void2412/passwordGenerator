@@ -5,19 +5,25 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
 
   var choice = getUserChoice()
-  var element
+  var element = document.querySelector("#passwordLengthBox")
   if (isNaN(choice.length) || (choice.length < 8 || choice.length > 128)){
-    element = document.querySelector("#passwordLengthBox")
-    element.setAttribute("style","border-color: red;")
+    element.value = ""
+    element.setAttribute("style","box-shadow: 0 0 3px red;")
+    
     return
   }
+  else{
+    element.setAttribute("style","border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));")
+  }
 
-
+  element = document.querySelector("#invalidArea")
   if (!choice.haveLowercase && !choice.haveUppercase && !choice.haveNumber && !choice.haveSpecialChar){
-    element = document.querySelector("#invalidOption")
-    element.textContent = "Must choose 1 criteria"
-    element.setAttribute("style","border-color: red; border: 1px solid red; display: inline-block; padding: 5px;")
+    
+    element.setAttribute("style","display:block;")
     return
+  }
+  else{
+    element.setAttribute("style","display:none;")
   }
 
   var password = getPassword(choice);

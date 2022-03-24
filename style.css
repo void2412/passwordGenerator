@@ -85,6 +85,16 @@ form label {
   cursor: pointer;
 }
 
+#invalidOption{
+  box-shadow: 0 0 3px red;
+  display: inline-block;
+  padding: 5px;
+}
+
+#invalidArea{
+  display: none;
+}
+
 .btn {
   border: none;
   background-color: hsl(360, 91%, 36%);
