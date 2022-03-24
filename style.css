@@ -72,7 +72,10 @@ header {
   clear: both;
 }
 
-
+#passwordLengthBox{
+  width: 200px;
+  line-height:1.5;
+}
 
 .btn {
   border: none;
