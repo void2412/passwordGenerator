@@ -1,5 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var copyBtn = document.querySelector("#copy");
 
 // Write password to the #password input
 function writePassword() {
@@ -47,8 +48,19 @@ function countDown(selector, attribute, value){
   }, 1000)
 }
 
-// Add event listener to generate button
+function copyPassword(){
+  var password = document.querySelector("#password").value
+  if (password === ""){
+    alert('Error! Password is blank')
+    return
+  }
+  navigator.clipboard.writeText(password)
+  alert('Password copied successfully')
+}
+
+// Add event listener to buttons
 generateBtn.addEventListener("click", writePassword);
+copyBtn.addEventListener("click", copyPassword);
 
 // get user choice of validation and length
 function getUserChoice(){
