@@ -1,5 +1,7 @@
 # <Password-Generator>
 
+## Password Generator
+
 ## Description
 
 This project is created for the purpose of generating a strong password with popular criteria from most of the website nowadays.
